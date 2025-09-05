@@ -1,0 +1,29 @@
+{
+  "usuarios": [
+    { "nombre": "yo", "verde": 5, "amarillo": 2, "rojo": 3, "naranja": 6, "morado": 2, "azul": 2, "total": 20, "favorito": "ninguna" },
+    { "nombre": "Valentina", "verde": 6, "amarillo": 3, "rojo": 5, "naranja": 1, "morado": 2, "azul": 3, "total": 20, "favorito": "verde" },
+    { "nombre": "paulina", "verde": 2, "amarillo": 6, "rojo": 3, "naranja": 3, "morado": 3, "azul": 3, "total": 20, "favorito": "naranja" },
+    { "nombre": "nelly", "verde": 4, "amarillo": 0, "rojo": 7, "naranja": 2, "morado": 3, "azul": 4, "total": 20, "favorito": "rojo" },
+    { "nombre": "zoe", "verde": 1, "amarillo": 3, "rojo": 4, "naranja": 3, "morado": 5, "azul": 4, "total": 20, "favorito": "morado" },
+    { "nombre": "juan carlos", "verde": 3, "amarillo": 4, "rojo": 3, "naranja": 6, "morado": 3, "azul": 1, "total": 20, "favorito": "rojo" },
+    { "nombre": "luisa", "verde": 7, "amarillo": 1, "rojo": 6, "naranja": 4, "morado": 1, "azul": 1, "total": 20, "favorito": "naranja" },
+    { "nombre": "fabio", "verde": 3, "amarillo": 5, "rojo": 4, "naranja": 1, "morado": 2, "azul": 5, "total": 20, "favorito": "todo" },
+    { "nombre": "erika", "verde": 6, "amarillo": 5, "rojo": 3, "naranja": 1, "morado": 3, "azul": 2, "total": 20, "favorito": "todo" },
+    { "nombre": "claudia", "verde": 1, "amarillo": 2, "rojo": 5, "naranja": 4, "morado": 4, "azul": 4, "total": 20, "favorito": "ninguna" },
+    { "nombre": "luna", "verde": 1, "amarillo": 6, "rojo": 1, "naranja": 5, "morado": 5, "azul": 2, "total": 20, "favorito": "todo" },
+    { "nombre": "Diana", "verde": 5, "amarillo": 5, "rojo": 1, "naranja": 5, "morado": 3, "azul": 1, "total": 20, "favorito": "verde" },
+    { "nombre": "Angel", "verde": 2, "amarillo": 5, "rojo": 5, "naranja": 3, "morado": 3, "azul": 2, "total": 20, "favorito": "azul" },
+    { "nombre": "eric", "verde": 3, "amarillo": 2, "rojo": 1, "naranja": 4, "morado": 4, "azul": 6, "total": 20, "favorito": "morado" },
+    { "nombre": "diego", "verde": 3, "amarillo": 5, "rojo": 3, "naranja": 4, "morado": 2, "azul": 2, "total": 19, "favorito": "morado" },
+    { "nombre": "Iñaki", "verde": 6, "amarillo": 6, "rojo": 6, "naranja": 6, "morado": 6, "azul": 6, "total": 36, "favorito": "rojo" },
+    { "nombre": "marco", "verde": 6, "amarillo": 3, "rojo": 3, "naranja": 4, "morado": 1, "azul": 3, "total": 20, "favorito": "azul" },
+    { "nombre": "luis", "verde": 3, "amarillo": 5, "rojo": 2, "naranja": 3, "morado": 2, "azul": 5, "total": 20, "favorito": "rojo" },
+    { "nombre": "Erick G", "verde": 3, "amarillo": 4, "rojo": 2, "naranja": 6, "morado": 2, "azul": 2, "total": 19, "favorito": "verde" },
+    { "nombre": "sofia", "verde": 2, "amarillo": 4, "rojo": 5, "naranja": 3, "morado": 2, "azul": 4, "total": 20, "favorito": "rojo" },
+    { "nombre": "pepe", "verde": 6, "amarillo": 2, "rojo": 2, "naranja": 1, "morado": 6, "azul": 3, "total": 20, "favorito": "rojo" },
+    { "nombre": "emmanuel", "verde": 1, "amarillo": 5, "rojo": 5, "naranja": 1, "morado": 4, "azul": 4, "total": 20, "favorito": "azul" },
+    { "nombre": "itza", "verde": 4, "amarillo": 2, "rojo": 3, "naranja": 2, "morado": 5, "azul": 4, "total": 20, "favorito": "narajan" }
+  ],
+  "totales": { "verde": 83, "amarillo": 85, "rojo": 82, "naranja": 78, "morado": 73, "azul": 73, "total": 474 },
+  "porcentajes": { "verde": "18%", "amarillo": "18%", "rojo": "17%", "naranja": "16%", "morado": "15%", "azul": "15%", "total": "100%" }
+}

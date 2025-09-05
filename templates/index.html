@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Lunetas de Chocolate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-candy-cane"></i> Control de Lunetas</h1>
+                <p>Registra y cuenta tus lunetas por color</p>
+            </div>
+            <div class="header-icon">
+                <div class="chocolate-icon">🍫</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="card form-card">
+                <h2 class="card-title"><i class="fas fa-user-plus"></i> Registro de Usuario</h2>
+                <form id="lunetas-form" method="POST" action="/guardar">
+                    <div class="form-group">
+                        <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+
+                    <div class="colores-container">
+                        <h3><i class="fas fa-palette"></i> Cantidad por color:</h3>
+
+                        <div class="colors-grid">
+                            <div class="color-input">
+                                <div class="color-circle roja"></div>
+                                <label for="rojas">Rojas:</label>
+                                <input type="number" id="rojas" name="rojas" min="0" value="0">
+                            </div>
+
+                            <div class="color-input">
+                                <div class="color-circle azul"></div>
+                                <label for="azules">Azules:</label>
+                                <input type="number" id="azules" name="azules" min="0" value="0">
+                            </div>
+
+                            <div class="color-input">
+                                <div class="color-circle amarilla"></div>
+                                <label for="amarillas">Amarillas:</label>
+                                <input type="number" id="amarillas" name="amarillas" min="0" value="0">
+                            </div>
+
+                            <div class="color-input">
+                                <div class="color-circle verde"></div>
+                                <label for="verdes">Verdes:</label>
+                                <input type="number" id="verdes" name="verdes" min="0" value="0">
+                            </div>
+
+                            <div class="color-input">
+                                <div class="color-circle naranja"></div>
+                                <label for="naranjas">Naranjas:</label>
+                                <input type="number" id="naranjas" name="naranjas" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="favorita"><i class="fas fa-heart"></i> Color favorito:</label>
+                        <select id="favorita" name="favorita" required>
+                            <option value="">Selecciona tu favorito</option>
+                            <option value="roja">Roja</option>
+                            <option value="azul">Azul</option>
+                            <option value="amarilla">Amarilla</option>
+                            <option value="verde">Verde</option>
+                            <option value="naranja">Naranja</option>
+                        </select>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary" id="guardar_datos">
+                            <i class="fas fa-save"></i> Guardar Datos
+                        </button>
+                        <button type="button" id="btn-imprimir-pdf" class="btn btn-accent">
+                            <i class="fas fa-file-pdf"></i> Imprimir PDF
+                        </button>
+                    </div>
+                </form>
+
+                {% if mensaje %}
+                <div class="mensaje">
+                    <i class="fas fa-check-circle"></i> {{ mensaje }}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="card users-card">
+                <h2 class="card-title"><i class="fas fa-users"></i> Usuarios Registrados</h2>
+                <div id="lista-usuarios" class="usuarios-list">
+                    {% if usuarios %}
+                        {% for usuario in usuarios %}
+                        <div class="usuario-item show">
+                            <div class="usuario-header">
+                                <h3><i class="fas fa-user"></i> {{ usuario.nombre }}</h3>
+                                <span class="total-lunetas">{{ usuario.total }} lunetas</span>
+                            </div>
+                            <div class="usuario-details">
+                                <div class="color-stats">
+                                    <div class="color-stat">
+                                        <span class="color-dot roja"></span>
+                                        <span>Rojas: {{ usuario.rojas }}</span>
+                                    </div>
+                                    <div class="color-stat">
+                                        <span class="color-dot azul"></span>
+                                        <span>Azules: {{ usuario.azules }}</span>
+                                    </div>
+                                    <div class="color-stat">
+                                        <span class="color-dot amarilla"></span>
+                                        <span>Amarillas: {{ usuario.amarillas }}</span>
+                                    </div>
+                                    <div class="color-stat">
+                                        <span class="color-dot verde"></span>
+                                        <span>Verdes: {{ usuario.verdes }}</span>
+                                    </div>
+                                    <div class="color-stat">
+                                        <span class="color-dot naranja"></span>
+                                        <span>Naranjas: {{ usuario.naranjas }}</span>
+                                    </div>
+                                </div>
+                                <div class="favorita-section">
+                                    <span class="favorita-label">Favorita:</span>
+                                    <span class="favorita-color {{ usuario.favorita }}">{{ usuario.favorita }}</span>
+                                </div>
+                            </div>
+                            <div class="usuario-actions">
+                                <button class="btn-small edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="btn-small delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon"><i class="fas fa-users-slash"></i></div>
+                        <p>No hay usuarios registrados todavía</p>
+                        <small>Los usuarios aparecerán aquí después de guardarlos</small>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Dulce aplicación para contar lunetas 🍬 | Hecho con <i class="fas fa-heart" style="color: #e91e63;"></i></p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para agregar otro usuario
+        document.getElementById('btn-agregar-usuario').addEventListener('click', function() {
+            // Limpiar el formulario
+            document.getElementById('lunetas-form').reset();
+
+            // Enfocar en el campo de nombre
+            document.getElementById('nombre').focus();
+
+            // Mostrar notificación con estilo
+            showNotification('Formulario listo para agregar un nuevo usuario', 'success');
+        });
+
+        // Función para mostrar notificación
+        function showNotification(mensaje, tipo) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${tipo}`;
+            notification.innerHTML = `<i class="fas ${tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${mensaje}`;
+
+            document.body.appendChild(notification);
+
+            // Mostrar notificación
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+
+            // Ocultar después de 3 segundos
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+
+    <script>
+        document.getElementById("btn-imprimir-pdf").addEventListener("click", function() {
+            window.location.href = "/reporte";
+        });
+    </script>
+</body>
+</html>
